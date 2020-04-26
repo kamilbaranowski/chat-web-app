@@ -1,6 +1,11 @@
-# ChatWebApp
+# ChatApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+
+## Install @angular/fire via NPM
+
+Run `npm install firebase @angular/fire --save` to install @angular/fire and firebase as dependencies in your Angular Project.
+For more information visit [fireship.io](https://fireship.io/snippets/install-angularfire/)
 
 ## Development server
 
