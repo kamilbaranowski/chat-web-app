@@ -12,13 +12,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserListComponent } from './user-list/user-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     ChatroomComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
