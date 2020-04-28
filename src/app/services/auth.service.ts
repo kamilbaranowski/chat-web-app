@@ -26,4 +26,8 @@ export class AuthService {
     this.angularFireDatabase.object(path).update(userData);
   }
 
+  signIn(email: string, password: string){
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password);
+  }
+
 }
