@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { UserListComponent } from './user-list/user-list.component';
     RegistrationComponent,
     ChatroomComponent,
     NavbarComponent,
-    UserListComponent
+    UserListComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
