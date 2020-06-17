@@ -14,6 +14,8 @@ import { environment } from '../environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageComponent } from './message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { UserComponent } from './user/user.component';
     ChatroomComponent,
     NavbarComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { UserComponent } from './user/user.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
