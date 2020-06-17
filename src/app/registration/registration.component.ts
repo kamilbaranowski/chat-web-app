@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-registration',
@@ -14,26 +15,31 @@ export class RegistrationComponent implements OnInit {
   password: string;
   retypedPassword: string;
 
+  registrationStatus: boolean = false;
   constructor(private authService: AuthService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  signUp(){
-    this.authService.signUp(this.email, this.password)
-      .then(userCredential => {
-        console.log('RegistrationComponent User:');
-        console.log(userCredential);
-        const userStatus = 'online';
-        this.authService.setUserData(userCredential.user.uid, 
-                                    this.username, userCredential.user.email, userStatus);
-        this.router.navigate(['chat']);
-      })
-      .catch(error => {
-        console.log('Sign Up error: ' + error);
-      })
-
+  signUp() {
+    if (this.password == this.retypedPassword) {
+      const user = {
+        "username": this.username,
+        "email": this.email,
+        "password": this.password,
+        "status": "online"
+      }
+      this.authService.signUp(user).subscribe(result => {
+        console.log("Sign UP successful: " + JSON.stringify(result));
+        this.registrationStatus = true;
+      },
+        error => {
+          console.log("Error while registration: " + JSON.stringify(error));
+        });
+    }
   }
-
+  okSignInButton() {
+    this.router.navigate(['login']);
+  }
 }
