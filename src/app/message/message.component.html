@@ -1,0 +1,17 @@
+<div *ngIf="isCurrentUser(messageInfo.receiver); else elseBlock" class="card"
+    style="width: 18rem; margin-left: 0%; margin-right: auto;">
+    <div class="card-body" style="cursor: pointer; background-color: lightcoral;">
+       <!-- <h5 class="card-title">{{ messageInfo.receiver }}</h5> -->
+        <h6 class="card-subtitle mb-2 text-muted">{{messageInfo.timestamp | date}}</h6>
+        <p class="card-text">{{ messageInfo.messageContent }}</p>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="card" style="width: 18rem; margin-left: auto; margin-right: 0%;">
+        <div class="card-body" style="cursor: pointer; background-color: lightblue;">
+         <!--   <h5 class="card-title">{{ messageInfo.receiver }}</h5> -->
+            <h6 class="card-subtitle mb-2 text-muted">{{messageInfo.timestamp | date}}</h6>
+            <p class="card-text">{{ messageInfo.messageContent }}</p>
+        </div>
+    </div>
+</ng-template>
