@@ -7,7 +7,8 @@ export const environment = {
     projectId: "chatapp-19116",
     storageBucket: "chatapp-19116.appspot.com",
     messagingSenderId: "1082287601628",
-    appId: "1:1082287601628:web:359331f03480ac9413c119",
-    measurementId: "G-85RC459X2P"
+    appId: "1:1082287601628:web:9d238f07230595df13c119",
+    measurementId: "G-VYN0B9XQDX"
+
   }
 };
