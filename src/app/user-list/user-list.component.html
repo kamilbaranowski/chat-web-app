@@ -1,5 +1,7 @@
 <div>
     <div *ngFor="let user of users">
-        <app-user [userInfo]=user></app-user> 
+        <div (click)="showThread(user)">
+            <app-user [userInfo]=user></app-user>
+        </div>
     </div>
 </div>
