@@ -3,24 +3,30 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <h3 class="h3 border-bottom">Users:</h3>
-                <app-user-list></app-user-list>
+                <app-user-list (notifyChatroomComponent)="receiveEvent($event)"></app-user-list>
             </div>
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 bg-light">
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Messages</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
+                <h1 class="h2">{{ receiver?.username }}</h1>
+            </div>
+            <div>
+                <div *ngFor="let message of messages">
+                    <app-message [messageInfo]=message></app-message>
                 </div>
             </div>
+            <form #messageForm='ngForm'>
+                <div class="input-group mb-3" style="bottom: 0;">
+                    <input type="text" class="form-control" placeholder="Enter your message"
+                        aria-describedby="sendMessage" (keydown)="handleSubmit()" name="message" id="message"
+                        [(ngModel)]="message" />
+                    <div class="input-group-append" style="margin-bottom: 10%;">
+                        <button [disabled]="!messageForm.form.valid" class="btn btn-outline-secondary" type="submit"
+                            name="sendMessage" id="sendMessage" (click)="sendMessage()">SEND</button>
+                    </div>
+                </div>
+            </form>
         </main>
     </div>
 </div>
