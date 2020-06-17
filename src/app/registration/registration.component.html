@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="!registrationStatus">
     <div class="card-body">
         <form #registrationForm='ngForm'>
 
@@ -35,4 +35,8 @@
 
         </form>
     </div>
+</div>
+<div *ngIf="registrationStatus" class="card" style="margin-top: 10%; margin-right: 20%; margin-left: 20%;">
+    <p style="text-align: center;">Successfully registered your account. Please Sign In.</p>
+    <button class="btn btn-primary" (click)="okSignInButton()">OK</button>
 </div>
